@@ -24,7 +24,9 @@ for i = 1 : length(filepaths)
     im_b_y = im_b_ycbcr(:,:,1) * 255.0;
     im_b = ycbcr2rgb(im_b_ycbcr) * 255.0;
 
+    im_noise_y = awgn(im_gt_y,20,'measured');
+
     %%filename = sprintf('Set5-output/%s.mat',filepaths(i).name);
      filename = sprintf('/home/zyy/jtt/pytorch-LapSRN-323/BSDS100/%s.mat',filepaths(i).name);
-    save(filename, 'im_gt_y', 'im_b_y', 'im_gt', 'im_b', 'im_l_ycbcr', 'im_l_y', 'im_l');
+    save(filename, 'im_gt_y', 'im_b_y', 'im_gt', 'im_b', 'im_l_ycbcr', 'im_l_y', 'im_l','im_noise_y');
 end
