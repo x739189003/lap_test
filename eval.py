@@ -105,7 +105,7 @@ for image_name in image_list:
     psnr_bicubic = PSNR(im_gt_y, im_b_y,shave_border=opt.scale)
     avg_psnr_bicubic += psnr_bicubic
 
-    im_input = im_l_y/255.
+    im_input = im_noise_y/255.
 
     im_input = Variable(torch.from_numpy(im_input).float()).view(1, -1, im_input.shape[0], im_input.shape[1])
 
